@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color Palette - Luxury Real Estate */
+  --color-brand-50: oklch(0.98 0.01 240);
+  --color-brand-100: oklch(0.95 0.02 240);
+  --color-brand-200: oklch(0.88 0.04 240);
+  --color-brand-300: oklch(0.78 0.08 240);
+  --color-brand-400: oklch(0.65 0.12 240);
+  --color-brand-500: oklch(0.52 0.16 240);
+  --color-brand-600: oklch(0.42 0.14 240);
+  --color-brand-700: oklch(0.32 0.12 240);
+  --color-brand-800: oklch(0.24 0.10 240);
+  --color-brand-900: oklch(0.18 0.08 240);
+  --color-brand-950: oklch(0.12 0.06 240);
+
+  --color-gold-50: oklch(0.98 0.02 85);
+  --color-gold-100: oklch(0.95 0.04 85);
+  --color-gold-200: oklch(0.88 0.08 85);
+  --color-gold-300: oklch(0.78 0.12 85);
+  --color-gold-400: oklch(0.68 0.16 85);
+  --color-gold-500: oklch(0.58 0.18 85);
+  --color-gold-600: oklch(0.48 0.16 85);
+  --color-gold-700: oklch(0.38 0.14 85);
+  --color-gold-800: oklch(0.28 0.12 85);
+  --color-gold-900: oklch(0.20 0.10 85);
+
+  /* Spacing */
+  --spacing-container: 1.5rem;
+  --spacing-section: 6rem;
+
+  /* Typography */
+  --font-family-display: 'Playfair Display', serif;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+
+  /* Animations */
+  --animate-duration-fast: 200ms;
+  --animate-duration-normal: 300ms;
+  --animate-duration-slow: 500ms;
+  --animate-duration-slower: 800ms;
+
+  /* Shadows */
+  --shadow-luxury: 0 20px 60px -15px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
+  --shadow-hover: 0 25px 70px -20px rgba(0, 0, 0, 0.4);
+}
+
+@layer base {
+  * {
+    @apply border-gray-200;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900 antialiased;
+    font-family: var(--font-family-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-family-display);
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn var(--animate-duration-normal) ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp var(--animate-duration-slow) ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn var(--animate-duration-normal) ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .glass-effect {
+    @apply bg-white/80 backdrop-blur-md border border-white/20;
+  }
+
+  .luxury-gradient {
+    background: linear-gradient(135deg, oklch(0.52 0.16 240) 0%, oklch(0.58 0.18 85) 100%);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-hover;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-gold-500/50 hover:shadow-2xl;
+  }
+}
